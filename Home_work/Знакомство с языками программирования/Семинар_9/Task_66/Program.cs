@@ -3,9 +3,9 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-int NumberRec(int a, int b, int counter)
+int SumNaturalElements(int a, int b, int counter)
 {
-    if (b != counter) a += NumberRec(++a, --b, counter);
+    if (b != counter) a += SumNaturalElements(++a, --b, counter);
     return a;
 }
 
@@ -17,6 +17,6 @@ if (M > 0 && N > 0)
 {
     int counter = M;
     Console.WriteLine();
-    Console.WriteLine(NumberRec(M, N, counter));
+    Console.WriteLine(SumNaturalElements(M, N, counter));
 }
 else Console.WriteLine("Ведите значения больше 0");
