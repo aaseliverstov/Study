@@ -22,7 +22,7 @@ print(f'Оригинальный список: {lst}')
 temp = 0
 tmp = []
 
-while len(tmp) < 10:
+while len(tmp) < len(lst):
     n = randint(0, 9)
     if n not in tmp:
         tmp.append(n)

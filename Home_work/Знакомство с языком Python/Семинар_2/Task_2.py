@@ -9,6 +9,7 @@ result = 1
 lst = []
 for i in range(1,num+1):
     result *= i
-    lst.insert(i-1, result)
+    # lst.insert(i-1, result)
+    lst.append(result)
 print(lst)
 

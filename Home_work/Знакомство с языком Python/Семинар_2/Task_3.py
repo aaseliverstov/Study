@@ -10,7 +10,8 @@ result = 0
 lst = []
 for i in range(1,num+1):
     result = (1 + 1 / i) ** i
-    lst.insert(i-1, result)
+    # lst.insert(i-1, result)
+    lst.append(result)
 print(lst)
 
 sum = 0
