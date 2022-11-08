@@ -5,3 +5,5 @@
 from decimal import Decimal
 
 print(round(float(input('Введите число: ')), int(Decimal(input('Введите точность: ')).as_tuple().exponent*(-1))))
+
+# print(Decimal(input('Введите число: ')).quantize(Decimal(input('Введите точность: '))))
