@@ -14,7 +14,6 @@ from decimal import Decimal
 
 def processing(input):
     input_lst = []
-    temp = ''
     count = 0
     for i in range(len(input)):
         if input[i] == '(':
@@ -51,18 +50,18 @@ def preparation(str):
             str = calculation(str, '/')
         elif '*' in str:
             str = calculation(str, '*')
-        elif '+' in str:
-            str = calculation(str, '+')
-        elif '-' in str:
-            str = calculation(str, '-')
+        else:
+            for i in str:
+                if i == '+':
+                    str = calculation(str, '+')
+                    break
+                elif i == '-':
+                    str = calculation(str, '-')
+                    break
     return str
 
 def calculation(input_str, symbol):
-    num1 = 0
-    num2 = 0
-    temp = 0
-    for i in input_str:
-        if symbol in input_str:
+    if symbol in input_str:
             temp = input_str.index(symbol)
             num1 = Decimal(input_str[temp - 1])
             num2 = Decimal(input_str[temp + 1])
@@ -79,7 +78,8 @@ def calculation(input_str, symbol):
             input_str.pop(temp)
     return input_str
 
-input = "1+(2*3)+(1+2*(3+1)-2)*3+12+2.5/4"
+# input = "1+(2*3)+(1+2*(3+1)-2)*3+12+2.5/4"
+input = "((1+2)-4+2)*(2+3*2)"
 input_lst = processing(input)
 
 count_brackets = 0
