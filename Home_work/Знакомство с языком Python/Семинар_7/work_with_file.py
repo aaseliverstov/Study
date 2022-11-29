@@ -2,7 +2,6 @@ import glob
 import random
 import csv
 import view as v
-import work_with_strings as wws
 
 
 def initializing_variable():
