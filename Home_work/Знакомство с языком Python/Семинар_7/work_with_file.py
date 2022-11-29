@@ -6,12 +6,12 @@ import work_with_strings as wws
 
 
 def initializing_variable():
-    global data_file
+    global data_file, name_download_file, max_id
+    
     data_file = ''
-    global name_download_file
     name_download_file = ''
-    global max_id
     max_id = ''
+    
     return data_file
 
 
