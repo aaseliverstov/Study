@@ -28,7 +28,7 @@ def search_file_and_download(name_file):
 
 
 def read_file(name_file):
-    with open(f'{name_file}.csv', 'r') as data:
+    with open(f'{name_file}.csv', 'r', encoding='utf-8') as data:
         temp = data.read().split()
         return temp
 
