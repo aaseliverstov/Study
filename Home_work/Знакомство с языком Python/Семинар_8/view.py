@@ -16,7 +16,7 @@ def name_db():
 def error_find_namedb(name):
     print('База данных с указанным именем не найдена.')
     temp = input(f'Создать БД с именем "{name}" (введите yes или no)?: ')
-    return temp 
+    return temp
 
 def error():
     print('Вы выбрали неверное значение')
@@ -64,3 +64,29 @@ def menu_for_change():
 
 def update_successfull():
     print('Запись успешно обновлена')
+
+def id_string_for_edit():
+    tmp = input('Укажите ID строки для редактирования: ')
+    return tmp
+
+def number_field_for_edit():
+    tmp = input('Выберите номер поля для редактирования: ')
+    return tmp
+
+def current_number(one_result):
+    print(f'Текущее значнеие: {one_result}')
+
+def new_string():
+    tmp = input('Введите новое значение: ')
+    return tmp
+
+def enter_data(text):
+    tmp = input(f'Введите {text}: ')
+    return tmp
+
+def add_data():
+    print('Данные успешно добавлены')
+
+def add_data_new_phone():
+    tmp = input('Хотите ли добавить дополнительный номер телефона? (Укажите yes или no): ')
+    return tmp
