@@ -1,21 +1,31 @@
-import java.util.Scanner;
-
 //Реализовать простой калькулятор
+
+import java.util.Scanner;
 public class Task3 {
     public static void main(String[] args)
     {
         int num1 = number();
         String symbol = symbol();
         int num2 = number();
+        
+        int result = 0;
 
-        char s1 = '+';
-
-
-        if (symbol == s1)
-
-        System.out.println(num1 + symbol + num2 + "=");
-
-
+        switch(symbol)
+        {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                result = num1 / num2;
+                break;
+        }
+        System.out.println(num1 + symbol + num2 + "=" + result);
     }
 
     public static int number()
@@ -25,7 +35,6 @@ public class Task3 {
         int num1 = scanner.nextInt();
         return num1;
     }
-
     public static String symbol()
     {
         Scanner scanner = new Scanner(System.in);
@@ -33,14 +42,4 @@ public class Task3 {
         String z = scanner.nextLine();
         return z;
     }
-
-    public static String symbol()
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Input sumbol (+,-,*,/): ");
-        String z = scanner.nextLine();
-        return z;
-    }
-
-
 }
