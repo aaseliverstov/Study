@@ -36,6 +36,7 @@ public class Task2
                 }
             }
             log.info(Arrays.toString(array));
+            
         }
     }
 }
