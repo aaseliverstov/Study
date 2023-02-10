@@ -32,6 +32,10 @@ public abstract class BaseHero implements BaseInterface{
 
     @Override
     public String toString() {
-        return "Name: " + name + ", Role: " + role + ", Attack: " + attack + ", Defence: " + defence + ", Damage: " + Arrays.toString(damage) + ", Health: " + health + ", Speed: " + speed;
+        return "Name: " + name + ", Role: " + role + ", Attack: " + attack + ", Defence: " + defence + ", Damage: " + Arrays.toString(damage) + ", Health: " + (health * 100 / maxHealth) + "%" + ", Speed: " + speed;
+    }
+
+    public String getRole(){
+        return role;
     }
 }

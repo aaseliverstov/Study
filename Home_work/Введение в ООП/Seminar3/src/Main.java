@@ -4,7 +4,6 @@
 //        3.Крестьяне должны уметь поднимать свой статус "свободен"
 //        4.Сделать так, чтобы по нажатию Enter программа повторяла вывод на экран состояние персонажей и вызов метода step.
 
-
 import Units.*;
 
 import java.util.ArrayList;
@@ -14,24 +13,27 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
         ArrayList<BaseHero> heroesOne = new ArrayList<>();
+        ArrayList<BaseHero> heroesOne_sorted = new ArrayList<>();
         ArrayList<BaseHero> heroesTwo = new ArrayList<>();
+        ArrayList<BaseHero> heroesTwo_sorted = new ArrayList<>();
+
         CreateHeroes(heroesOne, 1);
+        sort(heroesOne, heroesOne_sorted, "Units.Mage", "Units.Rogue", "Units.Sniper","Units.Farmer");
         CreateHeroes(heroesTwo, 2);
+        sort(heroesTwo, heroesTwo_sorted, "Units.Monk", "Units.Crossbowman", "Units.Spearman","Units.Farmer");
 
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.println();
             System.out.println("Нажмите Enter для продолжения");
             String entry = sc.nextLine();
             if ("".equals(entry)) {
-                heroesOne.forEach(n -> System.out.print(n.toString()));
-                heroesOne.forEach(n -> n.step(heroesOne));
+                heroesOne_sorted.forEach(n -> System.out.print(n.toString()));
+                heroesOne_sorted.forEach(n -> n.step(heroesOne));
                 System.out.println();
                 System.out.println();
-//                heroesTwo.forEach(n -> System.out.print(n.toString()));
-//                heroesTwo.forEach(n -> n.step(heroesTwo));
-//                for (int i = 0; i < heroesTwo.size(); i++) {
-//                    heroesTwo.get(i).step(heroesTwo);
-//                }
+                heroesTwo_sorted.forEach(n -> System.out.print(n.toString()));
+                heroesTwo_sorted.forEach(n -> n.step(heroesTwo));
             } else {
                 return;
             }
@@ -82,5 +84,28 @@ public class Main {
         ThreadLocalRandom randomNum = ThreadLocalRandom.current();
         int temp = randomNum.nextInt(num);
         return temp;
+    }
+
+    public static void sort(ArrayList<BaseHero> list, ArrayList<BaseHero> sorted_list,  String role1, String role2, String role3, String role4){
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getRole().equals(role1)){
+                sorted_list.add(list.get(i));
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getRole().equals(role2)){
+                sorted_list.add(list.get(i));
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getRole().equals(role3)){
+                sorted_list.add(list.get(i));
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getRole().equals(role4)){
+                sorted_list.add(list.get(i));
+            }
+        }
     }
 }
