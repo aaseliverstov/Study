@@ -400,3 +400,6 @@ FodyWeavers.xsd
 # My files
 .folder/
 env
+.idea
+out
+*.iml
