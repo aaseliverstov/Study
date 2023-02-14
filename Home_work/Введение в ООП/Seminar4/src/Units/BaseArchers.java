@@ -11,18 +11,18 @@ public class BaseArchers extends BaseHero{
 
     @Override
     public String toString() {
-        return super.toString() + ", Shoots: " + shoots + "\n";
+        return super.toString() + ", \uD83C\uDFF9 " + shoots;
     }
 
     @Override
     public void step(ArrayList<BaseHero> list) {
         if (shoots > 0) {
             for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).role.equals("Units.Farmer")) {
+                if (list.get(i).role.equals("Farmer")) {
                     if (((Farmer) list.get(i)).supply > 0) {
                         ((Farmer) list.get(i)).supply -= 1;
-                        System.out.println();
-                        System.out.print("Выстрел: " + role + " Name: " + name + " Shoots: " + shoots + "\n");
+                        System.out.print('\n');
+                        System.out.print("Выстрел: " + role + " Name: " + name + " \uD83C\uDFF9 " + shoots);
                         return;
                     } else {
                         continue;
@@ -30,8 +30,8 @@ public class BaseArchers extends BaseHero{
                 }
             }
             shoots -= 1;
-            System.out.println();
-            System.out.print("Выстрел: " + role + " Name: " + name + " Shoots: " + shoots + "\n");
+            System.out.print('\n');
+            System.out.print("Выстрел: " + role + " Name: " + name + " \uD83C\uDFF9 " + shoots);
         }
     }
 }

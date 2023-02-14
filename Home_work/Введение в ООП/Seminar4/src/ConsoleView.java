@@ -40,9 +40,7 @@ public class ConsoleView {
 //        System.out.println("|");
         System.out.println();
         System.out.println(ConsoleView.bott10);
-        System.out.println("Press Enter");
-
-
+//        System.out.println("Press Enter");
     }
 
     private static String formateDiv(String str){
@@ -62,8 +60,8 @@ public class ConsoleView {
         for (int i = 0; i < Main.GANG_SIZE; i++) {
             if (Main.darkSide_sorted.get(i).getPosition().isEquals(position)) {
                 str = "|" + AnsiColors.ANSI_BLUE + Main.darkSide_sorted.get(i).getName().toUpperCase().charAt(0) + AnsiColors.ANSI_RESET + "|"
-                        + " ".repeat(3) + AnsiColors.ANSI_GREEN + Main.whiteSide_sorted.get(i).getInfo() + AnsiColors.ANSI_RESET
-                        + " ".repeat(5) + AnsiColors.ANSI_BLUE + Main.darkSide_sorted.get(i).getInfo() + AnsiColors.ANSI_RESET;
+                        + " ".repeat(3) + AnsiColors.ANSI_GREEN + Main.whiteSide_sorted.get(i).toString() + AnsiColors.ANSI_RESET
+                        + " ".repeat(5) + AnsiColors.ANSI_BLUE + Main.darkSide_sorted.get(i).toString() + AnsiColors.ANSI_RESET;
             }
 
             if (Main.whiteSide_sorted.get(i).getPosition().isEquals(position)){
@@ -72,7 +70,4 @@ public class ConsoleView {
         }
         return str;
     }
-
-
-
 }

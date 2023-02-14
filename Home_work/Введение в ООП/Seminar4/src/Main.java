@@ -1,8 +1,4 @@
-//Проделать код ревью своих работ! Оптимизиривать интерфейс так, чтобы в клиент коде было видно только публичные поля. Добавить поведение (метод step) для лучников.
-//        1.Если стрел больше нуля заглушка выстрел и уменьшение количества стрел
-//        2.Проверить есть ли крестьяне и свободны ли хоть один из них. Если да, то вернуть одну стрелу и сбросить флаг свободен у крестьянина.
-//        3.Крестьяне должны уметь поднимать свой статус "свободен"
-//        4.Сделать так, чтобы по нажатию Enter программа повторяла вывод на экран состояние персонажей и вызов метода step.
+//Оптимизировать проект для вывода информации в псевдо графике.
 
 import Units.*;
 
@@ -29,28 +25,10 @@ public class Main {
         sort(darkSide, darkSide_sorted, "Monk", "Crossbowman", "Spearman","Farmer");
 
         Scanner sc = new Scanner(System.in);
-//        while (true) {
-//            ConsoleView.view();
-//            System.out.println();
-//            System.out.println("Нажмите Enter для продолжения");
-//            String entry = sc.nextLine();
-//            if ("".equals(entry)) {
-//                whiteSide_sorted.forEach(n -> System.out.print(n.toString()));
-//                whiteSide_sorted.forEach(n -> n.step(darkSide_sorted));
-//                System.out.println();
-//                System.out.println();
-//                darkSide_sorted.forEach(n -> System.out.print(n.toString()));
-//                darkSide_sorted.forEach(n -> n.step(whiteSide_sorted));
-//            } else {
-//                return;
-//            }
-//        }
         while (true){
-            whiteSide_sorted.forEach(n -> System.out.print(n.toString()));
-            System.out.println("_______________");
-            darkSide_sorted.forEach(n -> System.out.print(n.toString()));
             ConsoleView.view();
             whiteSide_sorted.forEach(n -> n.step(whiteSide_sorted));
+            System.out.println();
             darkSide_sorted.forEach(n -> n.step(darkSide_sorted));
             sc.nextLine();
         }
@@ -67,32 +45,34 @@ public class Main {
             for (int k = 0; k < 10; k++) {
                 int number = randomInt(4);
                 if (number == 0) {
-                    heroes.add(new Farmer(heroes_name[k], "Farmer", heroes, x,y++));
+                    heroes.add(new Farmer(heroes_name[k], "Farmer", heroes, x, y++));
                 }
                 else if (number == 1) {
-                    heroes.add(new Rogue(heroes_name[k], "Rogue", heroes, x,y++));
+                    heroes.add(new Rogue(heroes_name[k], "Rogue", heroes, x, y++));
                 }
                 else if (number == 2) {
-                    heroes.add(new Sniper(heroes_name[k], "Sniper", heroes, x,y++));
+                    heroes.add(new Sniper(heroes_name[k], "Sniper", heroes, x, y++));
                 }
                 else if (number == 3) {
-                    heroes.add(new Mage(heroes_name[k], "Mage", heroes, x,y++));
+                    heroes.add(new Mage(heroes_name[k], "Mage", heroes, x, y++));
                 }
             }  
         } else if (mode == 2) {
+            x = GANG_SIZE;
+            y = 1;
             for (int k = 10; k < 20; k++) {
                 int number = randomInt(4);
                 if (number == 0) {
-                    heroes.add(new Crossbowman(heroes_name[k], "Crossbowman", heroes, x,y++));
+                    heroes.add(new Crossbowman(heroes_name[k], "Crossbowman", heroes, x, y++));
                 }
                 else if (number == 1) {
-                    heroes.add(new Monk(heroes_name[k], "Monk", heroes, x,y++));
+                    heroes.add(new Monk(heroes_name[k], "Monk", heroes, x, y++));
                 }
                 else if (number == 2) {
-                    heroes.add(new Spearman(heroes_name[k], "Spearman", heroes, x,y++));
+                    heroes.add(new Spearman(heroes_name[k], "Spearman", heroes, x, y++));
                 }
                 else if (number == 3) {
-                    heroes.add(new Farmer(heroes_name[k], "Farmer", heroes, x,y++));
+                    heroes.add(new Farmer(heroes_name[k], "Farmer", heroes, x, y++));
                 }
             }  
         } 

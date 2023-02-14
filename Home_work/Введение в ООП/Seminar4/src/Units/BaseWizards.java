@@ -11,7 +11,7 @@ public class BaseWizards extends BaseHero{
 
     @Override
     public String toString() {
-        return super.toString() + ", Mana: " + mana + "\n";
+        return super.toString() + ", \uD83E\uDE84 " + mana;
     }
 
     @Override

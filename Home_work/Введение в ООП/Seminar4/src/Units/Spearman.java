@@ -9,6 +9,6 @@ public class Spearman extends BaseSoldiers {
 
     @Override
     public String toString() {
-        return super.toString() + "\n";
+        return super.toString();
     }
 }

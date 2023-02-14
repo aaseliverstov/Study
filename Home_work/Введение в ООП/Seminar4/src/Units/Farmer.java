@@ -17,7 +17,7 @@ public class Farmer extends BaseSoldiers {
 
     @Override
     public String toString() {
-        return super.toString() + ", Supply: " + supply + "\n";
+        return super.toString() + ", \uD83D\uDED2 " + supply;
     }
 
     @Override
