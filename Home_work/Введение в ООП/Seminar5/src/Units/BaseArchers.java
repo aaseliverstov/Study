@@ -15,11 +15,12 @@ public class BaseArchers extends BaseHero{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> list) {
+    public void step(ArrayList<BaseHero> heroList1, ArrayList<BaseHero> heroList2) {
+        getExit(heroList2);
         if (health == 0){
             return;
         }
-        Vector2 target = getTarget(list);
+        Vector2 target = getTarget(heroList2);
         BaseHero targetY;
         float attackPower;
         float constMin = 12;
@@ -32,18 +33,17 @@ public class BaseArchers extends BaseHero{
         }else{
             attackPower = damage[0] + ((target.x - constMax) / (constMin - constMax)) + (damage[1] - damage[0]);
         }
-        targetY = list.get((int)target.y);
+        targetY = heroList2.get((int)target.y);
 
         if (shoots > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i).role.equals("Farmer")) {
-                    if (((Farmer) list.get(i)).supply > 0) {
+            for (int i = 0; i < heroList2.size(); i++) {
+                if (heroList2.get(i).role.equals("Farmer")) {
+                    if (((Farmer) heroList2.get(i)).supply > 0) {
                         if (targetY.health > 0) {
-                            ((Farmer) list.get(i)).supply -= 1;
+                            ((Farmer) heroList2.get(i)).supply -= 1;
                             targetY.getDamage(attackPower);
-
                             System.out.print('\n');
-                            System.out.print("Выстрел: " + role + "(" + name + ")" + " \uD83C\uDFF9 " + shoots + " -> " + "(" + attackPower + ") " + targetY.role + "(" + targetY.name + ")" + ", ♥️ " + (int) (targetY.health * 100 / targetY.maxHealth) + "%");
+                            System.out.print("Выстрел: " + role + "(" + name + ")" + " \uD83C\uDFF9 " + shoots + " -> " + "(-" + attackPower + "hp) " + targetY.role + "(" + targetY.name + ")" + ", ♥️ " + (int) (targetY.health * 100 / targetY.maxHealth) + "%"+ "(" + (int)targetY.health + "/" + targetY.maxHealth + ")");
                         }
                         return;
                     } else {
@@ -52,9 +52,10 @@ public class BaseArchers extends BaseHero{
                 }
             }
             if (targetY.health > 0) {
+                targetY.getDamage(attackPower);
                 shoots -= 1;
                 System.out.print('\n');
-                System.out.print("Выстрел: " + role + " Name: " + name + " \uD83C\uDFF9 " + shoots + " -> " + "(-" + attackPower + ") " + targetY.role + "(" + targetY.name + ")" + ", ♥️ " + (int) (targetY.health * 100 / targetY.maxHealth) + "%");
+                System.out.print("Выстрел: " + role + "(" + name + ")" + " \uD83C\uDFF9 " + shoots + " -> " + "(-" + attackPower + "hp) " + targetY.role + "(" + targetY.name + ")" + ", ♥️ " + (int) (targetY.health * 100 / targetY.maxHealth) + "%"+ "(" + (int)targetY.health + "/" + targetY.maxHealth + ")");
             }
         }
     }
@@ -67,9 +68,7 @@ public class BaseArchers extends BaseHero{
             if (temp < minDistance && heroList.get(i).health > 0){
                 minDistance = temp;
                 minIndex = i;
-        }
-//        for (BaseHero target:heroList){
-//            System.out.println(getPosition().getDistance(target.getPosition().x, target.getPosition().y));
+            }
         }
         return new Vector2((int) minDistance, minIndex);
     }

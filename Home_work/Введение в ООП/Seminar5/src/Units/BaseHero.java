@@ -2,7 +2,6 @@ package Units;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
 
 public abstract class BaseHero implements BaseInterface{
@@ -18,7 +17,6 @@ public abstract class BaseHero implements BaseInterface{
         this.attack = attack;
         this.defence = defence;
         this.damage = damage;
-//        this.maxHealth = health;
         this.maxHealth = health;
         this.health = maxHealth; //- new Random().nextInt(maxHealth);
         this.speed = speed;
@@ -26,7 +24,7 @@ public abstract class BaseHero implements BaseInterface{
     }
 
     @Override
-    public void step(ArrayList<BaseHero> heroList) {
+    public void step(ArrayList<BaseHero> heroList1, ArrayList<BaseHero> heroList2) {
 
     }
 
@@ -37,8 +35,7 @@ public abstract class BaseHero implements BaseInterface{
 
     @Override
     public String toString() {
-//        return "Name: " + name + ", Role: " + role + ", Attack: " + attack + ", Defence: " + defence + ", Damage: " + Arrays.toString(damage) + ", Health: " + (health * 100 / maxHealth) + "%" + ", Speed: " + speed;
-        return  role + "(" + name + ")" + ", ⚔️ " + attack + ", ⛨: " + defence + ", ☠️ " + Arrays.toString(damage) + ", ♥️ " + (int)(health * 100 / maxHealth) + "%" + ", \uD83D\uDCA8 " + speed;
+        return  role + "(" + name + ")" + ", ⚔️ " + attack + ", ⛨: " + defence + ", ☠️ " + Arrays.toString(damage) + ", ♥️ " + (int)(health * 100 / maxHealth) + "%" + "(" + (int)health + "/" + maxHealth + ")"+ ", \uD83D\uDCA8 " + speed;
     }
 
     public String getRole(){
@@ -61,7 +58,22 @@ public abstract class BaseHero implements BaseInterface{
             this.health = maxHealth;
         }
     }
-    public int getHealth(){
-        return (int) health / maxHealth * 100;
+    public float getHealth(){
+//        return (int) health / maxHealth * 100;
+        return (int) health;
+    }
+
+    public void getExit(ArrayList <BaseHero> heroList){
+        int count = 0;
+        for (int i = 0; i < heroList.size(); i++) {
+            if (heroList.get(i).health == 0){
+                count ++;
+            }
+        }
+        if (count == 10){
+            System.out.println("");
+            System.out.println("☠" + " The End " + "☠");
+            System.exit(count);
+        }
     }
 }

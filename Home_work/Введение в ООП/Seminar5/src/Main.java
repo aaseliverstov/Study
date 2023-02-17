@@ -30,9 +30,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true){
             ConsoleView.view();
-            whiteSide_sorted.forEach(n -> n.step(darkSide_sorted));
+            whiteSide_sorted.forEach(n -> n.step(whiteSide_sorted, darkSide_sorted));
             System.out.println();
-            darkSide_sorted.forEach(n -> n.step(whiteSide_sorted));
+            darkSide_sorted.forEach(n -> n.step(darkSide_sorted, whiteSide_sorted));
             sc.nextLine();
         }
     }

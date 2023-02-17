@@ -21,7 +21,7 @@ public class Farmer extends BaseSoldiers {
     }
 
     @Override
-    public void step(ArrayList<BaseHero> heroList) {
+    public void step(ArrayList<BaseHero> heroList1, ArrayList<BaseHero> heroList2) {
         if (supply == 0 ){
             supply += 1;
         }

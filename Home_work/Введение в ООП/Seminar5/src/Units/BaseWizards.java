@@ -14,18 +14,20 @@ public class BaseWizards extends BaseHero{
         return super.toString() + ", \uD83E\uDE84 " + mana;
     }
 
+
     @Override
-    public void step(ArrayList<BaseHero> heroList) {
+    public void step(ArrayList<BaseHero> heroList1, ArrayList<BaseHero> heroList2) {
+        getExit(heroList1);
         if (health == 0){
             return;
         }
         int minHealth = 100;
         int minIndex = 0;
-        for (int i = 0; i < heroList.size(); i++) { //teamList
-            if (heroList.get(i).health == 0){
+        for (int i = 0; i < heroList1.size(); i++) {
+            if (heroList1.get(i).health == 0){
                 continue;
             }
-            String[] params = heroList.get(i).getInfo().split(" ");
+            String[] params = heroList1.get(i).getInfo().split(" ");
             if (Float.parseFloat(params[1]) < 100){
                 float temp = Float.parseFloat(params[1]);
                 if (temp < minHealth) {
@@ -35,9 +37,13 @@ public class BaseWizards extends BaseHero{
             }
         }
         if (minHealth < 100) {
-            heroList.get(minIndex).health -= damage[0];
-            System.out.println();
-            System.out.print("Лечение +" + -1 * damage[0] + "hp : " + heroList.get(minIndex));
+            heroList1.get(minIndex).health -= damage[0];
+            if (heroList1.get(minIndex).health > heroList1.get(minIndex).maxHealth){
+                heroList1.get(minIndex).health = heroList1.get(minIndex).maxHealth;
+            }
+            System.out.print('\n');
+            System.out.print("Лечение: " + role + "(" + name + ")" + " -> " + "(+" + -1 * damage[0] + "hp) " + heroList1.get(minIndex).role + "(" + heroList1.get(minIndex).name + ")" + ", ♥️ " + (int) (heroList1.get(minIndex).health * 100 / heroList1.get(minIndex).maxHealth) + "%"+ "(" + (int)heroList1.get(minIndex).health + "/" + heroList1.get(minIndex).maxHealth + ")");
+
         }
     }
 
