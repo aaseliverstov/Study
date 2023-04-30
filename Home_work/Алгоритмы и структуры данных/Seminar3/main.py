@@ -35,7 +35,7 @@ class LinkedList:
             node = node.next_node
         return result
 
-    def reverse_list(self, value):
+    def reverse_list(self):
         current = self.head
         next_node = current.next_node
         while current:
@@ -55,5 +55,5 @@ a.add_to_end(4)
 a.add_to_end(5)
 a.add_to_end(6)
 print(f"Linked list: {a.print_linked_list()}")
-a.reverse_list(a)
+a.reverse_list()
 print(f"Reverse linked list: {a.print_linked_list()}")
