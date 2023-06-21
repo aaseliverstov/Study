@@ -8,8 +8,8 @@ public class differenceNumbers {
         Arrays.setAll(arrayI, i -> array[i]);
 
         List<Integer> ints = Arrays.asList(arrayI);
-        int difference = Collections.max(ints) - Collections.min(ints);
+        int diff = Collections.max(ints) - Collections.min(ints);
 
-        return difference;
+        return diff;
     }
 }
