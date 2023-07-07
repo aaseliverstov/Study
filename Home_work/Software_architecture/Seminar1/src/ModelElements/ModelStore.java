@@ -15,16 +15,16 @@ public class ModelStore implements iModelChanger{
     public List<Camera> cameras = new ArrayList<>();
     private List<iModelChangedObserver> changeObservers;
 
-    public ModelStore(List<Point3D> points, List<PoligonalModel> models, List<Scene> scenes, List<Flash> flashes, List<Camera> cameras, List<iModelChangedObserver> changeObservers) {
-        this.points = points;
-        this.models = models;
-        this.scenes = scenes;
-        this.flashes = flashes;
-        this.cameras = cameras;
+    public ModelStore(List<iModelChangedObserver> changeObservers) {
         this.changeObservers = changeObservers;
     }
 
-    public Scene GetScene(int n){
+    public Scene GetScene(int ID){
+        for (int i = 0; i < scenes.size(); i++) {
+            if (scenes.get(i).id == ID) {
+                return scenes.get(i);
+            }
+        }
         return null;
     }
 
@@ -32,5 +32,4 @@ public class ModelStore implements iModelChanger{
     public void notifyChange(iModelChanger sender) {
 
     }
-
 }
