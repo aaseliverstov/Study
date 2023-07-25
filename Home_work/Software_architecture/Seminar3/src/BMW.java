@@ -8,7 +8,6 @@ public class BMW extends Car implements GasStation{
         System.out.println("Заправка топливом " + getTypeFuel() + " автомобиля " + getBrand() + " выполнена" );
     }
 
-    @Override
     public String getBrand() {
         return super.getBrand();
     }
@@ -19,18 +18,8 @@ public class BMW extends Car implements GasStation{
     }
 
     @Override
-    public String getModel() {
-        return super.getModel();
-    }
-
-    @Override
     public void setModel(String model) {
         super.setModel(model);
-    }
-
-    @Override
-    public String getColor() {
-        return super.getColor();
     }
 
     @Override
@@ -39,18 +28,8 @@ public class BMW extends Car implements GasStation{
     }
 
     @Override
-    public String getTypeBody() {
-        return super.getTypeBody();
-    }
-
-    @Override
     public void setTypeBody(String typeBody) {
         super.setTypeBody(typeBody);
-    }
-
-    @Override
-    public int getNumWheels() {
-        return super.getNumWheels();
     }
 
     @Override
@@ -69,18 +48,8 @@ public class BMW extends Car implements GasStation{
     }
 
     @Override
-    public String getTypeTransmission() {
-        return super.getTypeTransmission();
-    }
-
-    @Override
     public void setTypeTransmission(String typeTransmission) {
         super.setTypeTransmission(typeTransmission);
-    }
-
-    @Override
-    public float getEngineCapacity() {
-        return super.getEngineCapacity();
     }
 
     @Override
