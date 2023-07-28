@@ -1,3 +1,6 @@
+/**
+ * Абстрактный класс «Car».
+ **/
 public abstract class Car {
     private String brand;
     private String model;
@@ -32,32 +35,16 @@ public abstract class Car {
         this.brand = brand;
     }
 
-    public String getModel() {
-        return model;
-    }
-
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public String getColor() {
-        return color;
     }
 
     public void setColor(String color) {
         this.color = color;
     }
 
-    public String getTypeBody() {
-        return typeBody;
-    }
-
     public void setTypeBody(String typeBody) {
         this.typeBody = typeBody;
-    }
-
-    public int getNumWheels() {
-        return numWheels;
     }
 
     public void setNumWheels(int numWheels) {
@@ -72,16 +59,8 @@ public abstract class Car {
         this.typeFuel = typeFuel;
     }
 
-    public String getTypeTransmission() {
-        return typeTransmission;
-    }
-
     public void setTypeTransmission(String typeTransmission) {
         this.typeTransmission = typeTransmission;
-    }
-
-    public float getEngineCapacity() {
-        return engineCapacity;
     }
 
     public void setEngineCapacity(float engineCapacity) {
